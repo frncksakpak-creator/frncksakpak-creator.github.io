@@ -177,6 +177,7 @@
   .service-card.expanded{border-color:var(--gold); background:linear-gradient(160deg, #1F2430, #14171F);}
   .service-card.featured{ min-height:100%; }
   .service-card.wide{ grid-column: 1 / -1; }
+  .service-card.wide p, .service-card.wide .more{ max-width:420px; }
   .service-card h3{font-size:1.1rem; color:var(--cream); margin-bottom:6px;}
   .service-card p{margin:0; font-size:.9rem;}
   .service-card .num{
@@ -191,11 +192,17 @@
   }
   .service-card.expanded .chevron{transform:rotate(45deg); border-color:var(--gold); color:var(--gold);}
   .service-card .more{
-    max-height:0; overflow:hidden; opacity:0;
+    max-height:0; overflow-y:hidden; opacity:0;
     transition:max-height .4s ease, opacity .3s ease, margin-top .3s ease;
     font-size:.85rem; color:var(--muted); margin-top:0;
   }
-  .service-card.expanded .more{ max-height:200px; opacity:1; margin-top:12px; padding-top:12px; border-top:1px dashed var(--line); }
+  .service-card.expanded .more{
+    max-height:88px; overflow-y:auto; opacity:1;
+    margin-top:12px; padding-top:12px; padding-right:6px;
+    border-top:1px dashed var(--line);
+  }
+  .service-card .more::-webkit-scrollbar{ width:4px; }
+  .service-card .more::-webkit-scrollbar-thumb{ background:var(--teal); border-radius:4px; }
 
   @media (max-width:760px){
     .services-grid{ grid-template-columns:1fr; grid-auto-rows:auto; }
